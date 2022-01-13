@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import { createReducer } from '@reduxjs/toolkit';
-import phonebookActions from './actions';
+import phonebookActions from '../actions/actions';
 
 const baseContacts = [
   { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
