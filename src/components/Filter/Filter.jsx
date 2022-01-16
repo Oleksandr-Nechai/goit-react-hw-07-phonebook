@@ -1,13 +1,12 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getFilter } from '../../redux/selectors/selectors';
-import phonebookActions from '../../redux/actions/actions';
+import { changeFilter } from '../../redux/contacts/actions';
 import styles from './Filter.module.css';
 
 const Filter = () => {
   const dispatch = useDispatch();
-  const onChange = event => dispatch(phonebookActions.filterContacts(event.target.value));
-  const value = useSelector(getFilter);
+  const handleChange = e => dispatch(changeFilter(e.target.value));
+  const value = useSelector(state => state.filter);
 
   return (
     <div className={styles.section}>
@@ -15,9 +14,9 @@ const Filter = () => {
         <h2 className={styles.title}>Find contact by name</h2>
         <input
           type="text"
-          name="name"
+          name="filter"
           value={value}
-          onChange={onChange}
+          onChange={handleChange}
           className={styles.input}
           placeholder="find name..."
         />
